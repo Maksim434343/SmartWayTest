@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+  mongo:
+    image: mongo
+    restart: always
+    volumes:
+        - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: sc2n7391PeFs3mKT
+
+  mongo-proxy:
+    image: mongo-proxy:1.25.2
+    restart: always
+    ports: 
+      - 27017:27017
+
+volumes: 
+  mongo-data:
